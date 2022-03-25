@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>find sum of digits</title>
+        <style>
+            .mainContainer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 90vh;
+            }
+            .inputBox {
+                width: 35%;
+                height: 30vh;
+                border-radius: 8px;
+                box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+                padding: 20px;
+                font-size: 1.2rem;
+                font-family: sans-serif;
+            }
+            form {
+                display: flex;
+                flex-flow: column;
+            }
+            input {
+                box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+                border: none;
+                padding: 5px 10px;
+                width: 85%;
+                border-radius: 5px;
+            }
+            button {
+                width: fit-content;
+                margin-top: 1.5rem;
+                padding: 5px 10px;
+                font-family: sans-serif;
+                font-size: 1.2rem;
+                background-color: #28a745;
+                color: white;
+                border-radius: 5px;
+                border: 1px solid #19772f;
+                cursor: pointer;
+            }
+            button:hover {
+                opacity: 0.9;
+            }
+            .resultBox {
+                box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+                border: 2px solid gainsboro;
+                border-radius: 5px;
+                width: max-content;
+                padding: 5px 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 25px;
+                min-width: 45px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainContainer">
+            <div class="inputBox">
+                <form onsubmit="formSubmitHandler(event)">
+                    <label style="margin-bottom: 10px;" for="enteredNum">enter a number :</label>
+                    <input type="number" id="enteredNum">
+                    <button type="submit" value="submit">submit</button>
+                </form>
+                <div style="display: flex; justify-content: center;">
+                    <div class="resultBox">
+                        <p style="margin: 0;" id="resultBox"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        const formSubmitHandler = (event) => { 
+           event.preventDefault();
+           let enteredNumber = document.getElementById("enteredNum").value;
+           let numArray = enteredNumber.split("");
+           let result = 0;
+           numArray.map((item) => {
+                result = result + Number(item);
+           })
+           document.getElementById("resultBox").innerHTML = result;
+           document.getElementById("enteredNum").value = "";
+        }
+    </script>
+</html>
